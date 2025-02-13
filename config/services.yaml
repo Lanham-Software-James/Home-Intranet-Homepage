@@ -21,3 +21,9 @@
             username: {{HOMEPAGE_VAR_OMADA_USERNAME}}
             password: {{HOMEPAGE_VAR_OMADA_PASSWORD}}
             site: {{HOMEPAGE_VAR_OMADA_SITE}}
+    - Github:
+        id: 300
+        href: https://github.com/Lanham-Software-James?tab=repositories
+    - Jenkins:
+        id: 300
+        href: https://jenkins.homeintranet.local/
