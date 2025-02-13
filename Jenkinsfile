@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        // Update these values to match your environment
         SERVER_IP = '192.168.0.39'
         DEPLOY_DIR = '/opt/stacks/homepage'
         CREDENTIALS_ID = 'home-intranet-server-ssh'
@@ -20,7 +19,7 @@ pipeline {
                     // Copy docker-compose.yml
                     sh "scp -o StrictHostKeyChecking=no docker-compose.prd.yml ${SERVER_IP}:${DEPLOY_DIR}/docker-compose.yml"
 
-                    // Copy services file
+                    // Copy config files
                     sh "scp -o StrictHostKeyChecking=no config/* ${SERVER_IP}:${DEPLOY_DIR}/config/"
                 }
             }
