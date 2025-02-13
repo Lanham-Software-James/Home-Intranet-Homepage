@@ -13,7 +13,7 @@ services:
       HOMEPAGE_VAR_OMADA_PASSWORD: ${HOMEPAGE_VAR_OMADA_PASSWORD}
       HOMEPAGE_VAR_OMADA_SITE: ${HOMEPAGE_VAR_OMADA_SITE}
     dns:
-      - 192.168.0.39
+      - 172.20.0.100
     volumes:
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
