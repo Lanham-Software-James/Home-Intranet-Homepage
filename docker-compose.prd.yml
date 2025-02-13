@@ -5,7 +5,7 @@ services:
     networks:
       - home-intranet-nginx
     environment:
-      VIRTUAL_HOST: "homepage.homeintranet.local"
+      VIRTUAL_HOST: "intranet.local"
       VIRTUAL_PROTO: "http"
       VIRTUAL_PORT: 3000
       HOMEPAGE_VAR_PIHOLE_API_TOKEN: ${HOMEPAGE_VAR_PIHOLE_API_TOKEN}
