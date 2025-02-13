@@ -21,4 +21,13 @@
             url: https://pihole.homeintranet.local
             version: 5
             key:  {{HOMEPAGE_VAR_PIHOLE_API_TOKEN}}
-
+    - Omada:
+        id: 200
+        icon: omada.png
+        href: https://omada.homeintranet.local
+        widget:
+            type: omada
+            url: https://omada.homeintranet.local
+            username: {{HOMEPAGE_VAR_OMADA_USERNAME}}
+            password: {{HOMEPAGE_VAR_OMADA_PASSWORD}}
+            site: {{HOMEPAGE_VAR_OMADA_SITE}}
