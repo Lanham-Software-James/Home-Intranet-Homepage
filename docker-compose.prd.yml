@@ -1,0 +1,18 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: home-intranet-homepage
+    networks:
+      - home-intranet-nginx
+    environment:
+      VIRTUAL_HOST: "homepage.homeintranet.local"
+      VIRTUAL_PROTO: "http"
+      VIRTUAL_PORT: 3000
+      HOMEPAGE_VAR_PIHOLE_PASSWORD: ${HOMEPAGE_VAR_PIHOLE_PASSWORD}
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  home-intranet-nginx:
+    external: true
