@@ -1,0 +1,13 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: home-intranet-homepage
+    ports:
+      - "3000:3000"
+    environment:
+      HOMEPAGE_VAR_PIHOLE_API_TOKEN: ${HOMEPAGE_VAR_PIHOLE_API_TOKEN}
+    dns:
+      - 192.168.0.39
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock

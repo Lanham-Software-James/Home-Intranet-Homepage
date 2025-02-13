@@ -13,8 +13,12 @@
 
 - Networking:
     - PiHole:
-      widget:
-        type: pihole
-        url: https://pihole.homeintranet.local
-        version: 5
-        key:  {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
+        id: 100
+        icon: pi-hole.png
+        href: https://pihole.homeintranet.local
+        widget:
+            type: pihole
+            url: https://pihole.homeintranet.local
+            version: 5
+            key:  {{HOMEPAGE_VAR_PIHOLE_API_TOKEN}}
+

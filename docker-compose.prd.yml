@@ -8,7 +8,9 @@ services:
       VIRTUAL_HOST: "homepage.homeintranet.local"
       VIRTUAL_PROTO: "http"
       VIRTUAL_PORT: 3000
-      HOMEPAGE_VAR_PIHOLE_PASSWORD: ${HOMEPAGE_VAR_PIHOLE_PASSWORD}
+      HOMEPAGE_VAR_PIHOLE_PASSWORD: ${HOMEPAGE_VAR_PIHOLE_API_TOKEN}
+    dns:
+      - 192.168.0.39
     volumes:
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
