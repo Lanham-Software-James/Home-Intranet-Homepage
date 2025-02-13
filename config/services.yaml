@@ -1,0 +1,20 @@
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- My First Group:
+    - My First Service:
+        href: http://localhost/
+        description: Homepage is awesome
+
+- My Second Group:
+    - My Second Service:
+        href: http://localhost/
+        description: Homepage is the best
+
+- Networking:
+    - PiHole:
+      widget:
+        type: pihole
+        url: https://pihole.homeintranet.local
+        version: 5
+        key:  {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
