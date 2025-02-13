@@ -21,7 +21,7 @@ pipeline {
                     sh "scp -o StrictHostKeyChecking=no docker-compose.prd.yml ${SERVER_IP}:${DEPLOY_DIR}/docker-compose.yml"
 
                     // Copy services file
-                    sh "scp -o StrictHostKeyChecking=no config/services.yaml ${SERVER_IP}:${DEPLOY_DIR}/config/"
+                    sh "scp -o StrictHostKeyChecking=no config/ ${SERVER_IP}:${DEPLOY_DIR}/config/"
                 }
             }
         }
