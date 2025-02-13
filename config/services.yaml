@@ -25,5 +25,8 @@
         id: 300
         href: https://github.com/Lanham-Software-James?tab=repositories
     - Jenkins:
-        id: 300
+        id: 400
         href: https://jenkins.intranet.local/
+    - Printer:
+        id: 500
+        href: https://192.168.0.34/
