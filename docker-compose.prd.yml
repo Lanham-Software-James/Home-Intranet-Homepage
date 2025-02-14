@@ -1,7 +1,7 @@
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
-    container_name: home-intranet-homepage
+    container_name: homepage
     networks:
       - home-intranet-nginx
     environment:
