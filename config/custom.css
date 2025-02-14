@@ -1,0 +1,16 @@
+#tailscale .service-container::before {
+    content: "Intranet";
+    display: block;
+    color: #ffffff;
+    width: 80px;
+    height: 52px;
+    line-height: 52px;
+}
+
+#tailscale .service-container:nth-of-type(2)::before {
+    content: "MacBook";
+}
+
+#tailscale .service-container:nth-of-type(3)::before {
+    content: "Phone";
+}

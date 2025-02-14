@@ -1,10 +1,7 @@
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/services/
-
 - Networking:
     - PiHole:
-        id: 100
-        icon: pi-hole.png
+        id: pihole
+        icon: si-pihole
         href: https://pihole.intranet.local
         widget:
             type: pihole
@@ -12,8 +9,8 @@
             version: 5
             key:  {{HOMEPAGE_VAR_PIHOLE_API_TOKEN}}
     - Omada:
-        id: 200
-        icon: omada.png
+        id: omada
+        icon: si-omadacloud
         href: https://omada.intranet.local
         widget:
             type: omada
@@ -21,12 +18,33 @@
             username: {{HOMEPAGE_VAR_OMADA_USERNAME}}
             password: {{HOMEPAGE_VAR_OMADA_PASSWORD}}
             site: {{HOMEPAGE_VAR_OMADA_SITE}}
+    - Tailscale:
+        id: tailscale
+        icon: si-tailscale
+        href: https://login.tailscale.com
+        widgets:
+            - type: tailscale
+              deviceid: {{HOMEPAGE_VAR_TAILSCALE_ID_INTRANET}}
+              key: {{HOMEPAGE_VAR_TAILSCALE_KEY}}
+            - type: tailscale
+              deviceid: {{HOMEPAGE_VAR_TAILSCALE_ID_MACBOOK}}
+              key: {{HOMEPAGE_VAR_TAILSCALE_KEY}}
+            - type: tailscale
+              deviceid: {{HOMEPAGE_VAR_TAILSCALE_ID_PHONE}}
+              key: {{HOMEPAGE_VAR_TAILSCALE_KEY}}
+
+- Developer Tools:
     - Github:
-        id: 300
+        id: github
+        icon: si-github
         href: https://github.com/Lanham-Software-James?tab=repositories
     - Jenkins:
-        id: 400
+        id: jenkins
+        icon: si-jenkins
         href: https://jenkins.intranet.local/
+
+- Local Resources:
     - Printer:
-        id: 500
+        id: printer
+        icon: si-hp
         href: https://192.168.0.34/
