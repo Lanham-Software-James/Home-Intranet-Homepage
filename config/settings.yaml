@@ -2,6 +2,11 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/settings/
 
+title: Home Intranet
+description: This is the hub for all the intranet tools and resources.
+startUrl: https://www.intranet.local
+color: neutral
+
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey
