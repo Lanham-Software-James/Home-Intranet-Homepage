@@ -6,8 +6,8 @@
         widget:
             type: pihole
             url: https://pihole.intranet.local
-            version: 5
-            key:  {{HOMEPAGE_VAR_PIHOLE_API_TOKEN}}
+            version: 6
+            key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}} # xL^ZV2vGzalV$7
     - Omada:
         id: omada
         icon: si-omadacloud
