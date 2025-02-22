@@ -1,14 +1,36 @@
 services:
+  homepage-tailscale:
+    image: tailscale/tailscale:latest
+    container_name: homepage-tailscale
+    hostname: homepage
+    healthcheck:
+      test: ["CMD", "tailscale", "status", "--peers=false"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      - TS_AUTHKEY=${TAILSCALE_AUTH_KEY}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+      - TS_SERVE_CONFIG=homepage.json
+      - TS_ACCEPT_DNS=true
+      - TS_EXTRA_ARGS=--reset
+    volumes:
+      - homepage-tailscale:/var/lib/tailscale
+      - /lib/modules:/lib/modules:ro
+      - ./homepage.json:/homepage.json
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
+
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
-    networks:
-      - home-intranet-nginx
+    network_mode: service:homepage-tailscale
     environment:
-      VIRTUAL_HOST: "www.intranet.local"
-      VIRTUAL_PROTO: "http"
-      VIRTUAL_PORT: 3000
-
       HOMEPAGE_VAR_PIHOLE_PASSWORD: ${HOMEPAGE_VAR_PIHOLE_PASSWORD}
 
       HOMEPAGE_VAR_OMADA_USERNAME: ${HOMEPAGE_VAR_OMADA_USERNAME}
@@ -19,12 +41,12 @@ services:
       HOMEPAGE_VAR_TAILSCALE_ID_MACBOOK: ${HOMEPAGE_VAR_TAILSCALE_ID_MACBOOK}
       HOMEPAGE_VAR_TAILSCALE_ID_PHONE: ${HOMEPAGE_VAR_TAILSCALE_ID_PHONE}
       HOMEPAGE_VAR_TAILSCALE_KEY: ${HOMEPAGE_VAR_TAILSCALE_KEY}
-    dns:
-      - 172.20.0.100
     volumes:
       - ./config:/app/config
-      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      homepage-tailscale:
+        condition: service_healthy
+    restart: unless-stopped
 
-networks:
-  home-intranet-nginx:
-    external: true
+volumes:
+  homepage-tailscale:
