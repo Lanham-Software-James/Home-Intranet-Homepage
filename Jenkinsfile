@@ -19,6 +19,9 @@ pipeline {
                     // Copy docker-compose.yml
                     sh "scp -o StrictHostKeyChecking=no docker-compose.prd.yml ${SERVER_IP}:${DEPLOY_DIR}/docker-compose.yml"
 
+                    // Copy tailscale https config
+                    sh "scp -o StrictHostKeyChecking=no homepage.json ${SERVER_IP}:${DEPLOY_DIR}/homepage.json"
+
                     // Copy config files
                     sh "scp -o StrictHostKeyChecking=no config/* ${SERVER_IP}:${DEPLOY_DIR}/config/"
                 }
