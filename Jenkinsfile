@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        SERVER_IP = '192.168.0.39'
+        USER = 'jenkins'
+        SERVER_IP = 'home-intranet'
         DEPLOY_DIR = '/opt/stacks/homepage'
         CREDENTIALS_ID = 'home-intranet-server-ssh'
     }
@@ -17,13 +18,13 @@ pipeline {
             steps {
                 sshagent(credentials: [CREDENTIALS_ID]) {
                     // Copy docker-compose.yml
-                    sh "scp -o StrictHostKeyChecking=no docker-compose.prd.yml ${SERVER_IP}:${DEPLOY_DIR}/docker-compose.yml"
+                    sh "scp -o StrictHostKeyChecking=no docker-compose.prd.yml ${USER}@${SERVER_IP}:${DEPLOY_DIR}/docker-compose.yml"
 
                     // Copy tailscale https config
-                    sh "scp -o StrictHostKeyChecking=no homepage.json ${SERVER_IP}:${DEPLOY_DIR}/homepage.json"
+                    sh "scp -o StrictHostKeyChecking=no homepage.json ${USER}@${SERVER_IP}:${DEPLOY_DIR}/homepage.json"
 
                     // Copy config files
-                    sh "scp -o StrictHostKeyChecking=no config/* ${SERVER_IP}:${DEPLOY_DIR}/config/"
+                    sh "scp -o StrictHostKeyChecking=no config/* ${USER}@${SERVER_IP}:${DEPLOY_DIR}/config/"
                 }
             }
         }
