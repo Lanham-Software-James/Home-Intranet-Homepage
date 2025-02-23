@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sshagent(credentials: [CREDENTIALS_ID]) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${SERVER_IP} \
+                        ssh -o StrictHostKeyChecking=no ${USER}@${SERVER_IP} \
                         "cd ${DEPLOY_DIR} && \
                         docker compose down && \
                         docker compose up -d"
