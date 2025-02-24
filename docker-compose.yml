@@ -2,9 +2,9 @@ services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: home-intranet-homepage
-    ports:
-      - "3001:3000"
     environment:
+      HOMEPAGE_VAR_PIHOLE_URL: ${HOMEPAGE_VAR_PIHOLE_URL}
+      HOMEPAGE_VAR_PIHOLE_ADMIN_PANEL: ${HOMEPAGE_VAR_PIHOLE_ADMIN_PANEL}
       HOMEPAGE_VAR_PIHOLE_PASSWORD: ${HOMEPAGE_VAR_PIHOLE_PASSWORD}
 
       HOMEPAGE_VAR_OMADA_USERNAME: ${HOMEPAGE_VAR_OMADA_USERNAME}
@@ -15,8 +15,8 @@ services:
       HOMEPAGE_VAR_TAILSCALE_ID_MACBOOK: ${HOMEPAGE_VAR_TAILSCALE_ID_MACBOOK}
       HOMEPAGE_VAR_TAILSCALE_ID_PHONE: ${HOMEPAGE_VAR_TAILSCALE_ID_PHONE}
       HOMEPAGE_VAR_TAILSCALE_KEY: ${HOMEPAGE_VAR_TAILSCALE_KEY}
-    dns:
-      - 192.168.0.39
+    ports:
+      - "127.0.0.1:3001:3000"
     volumes:
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock

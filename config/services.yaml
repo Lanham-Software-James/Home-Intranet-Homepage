@@ -2,10 +2,10 @@
     - PiHole:
         id: pihole
         icon: si-pihole
-        href: https://pihole.intranet.local
+        href: {{HOMEPAGE_VAR_PIHOLE_ADMIN_PANEL}}
         widget:
             type: pihole
-            url: https://pihole.intranet.local
+            url: {{HOMEPAGE_VAR_PIHOLE_URL}}
             version: 6
             key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Omada:
