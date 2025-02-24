@@ -7,7 +7,7 @@
             type: pihole
             url: https://pihole.intranet.local
             version: 6
-            key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}} # xL^ZV2vGzalV$7
+            key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Omada:
         id: omada
         icon: si-omadacloud
