@@ -1,3 +1,14 @@
+- Tools:
+    - Printer:
+        id: printer
+        icon: si-hp
+        href: https://192.168.0.34/
+
+    - Stirling PDF:
+        id: stirling
+        icon: mdi-file-document-outline
+        href: {{HOMEPAGE_VAR_STIRLING_URL}}
+
 - Networking:
     - PiHole:
         id: pihole
@@ -8,6 +19,7 @@
             url: {{HOMEPAGE_VAR_PIHOLE_URL}}
             version: 6
             key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
+
     - Omada:
         id: omada
         icon: si-omadacloud
@@ -18,6 +30,7 @@
             username: {{HOMEPAGE_VAR_OMADA_USERNAME}}
             password: {{HOMEPAGE_VAR_OMADA_PASSWORD}}
             site: {{HOMEPAGE_VAR_OMADA_SITE}}
+
     - Tailscale:
         id: tailscale
         icon: si-tailscale
@@ -38,13 +51,8 @@
         id: github
         icon: si-github
         href: https://github.com/Lanham-Software-James?tab=repositories
+
     - Jenkins:
         id: jenkins
         icon: si-jenkins
         href: https://jenkins.intranet.local/
-
-- Local Resources:
-    - Printer:
-        id: printer
-        icon: si-hp
-        href: https://192.168.0.34/
