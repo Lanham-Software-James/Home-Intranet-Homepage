@@ -55,4 +55,4 @@
     - Jenkins:
         id: jenkins
         icon: si-jenkins
-        href: https://jenkins.intranet.local/
+        href: {{HOMEPAGE_VAR_JENKINS_URL}}
