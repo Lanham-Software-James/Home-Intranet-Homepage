@@ -50,7 +50,7 @@
     - Github:
         id: github
         icon: si-github
-        href: https://github.com/Lanham-Software-James?tab=repositories
+        href: {{HOMEPAGE_VAR_GITHUB_URL}}
 
     - Jenkins:
         id: jenkins
